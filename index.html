@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>store name</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- шапка -->
+  <header>
+    <button class="back-btn" id="back-btn" onclick="navigate('home')" style="display:none;">← Назад</button>
+    <h1 class="logo">STORE NAME</h1>
+    <nav>
+      <a href="#" class="nav-link" onclick="navigate('home')">Головна</a>
+      <a href="#" class="nav-link" onclick="navigate('about')">Про нас</a>
+      <a href="#" class="nav-link" onclick="navigate('contact')">Контакти</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- головна сторінка -->
+    <div id="page-home" class="page-view active">
+
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Нова Колекція</h2>
+          <p>інфо</p>
+          <button class="btn-dark" onclick="navigate('contact')">Замовити зараз</button>
+        </div>
+      </section>
+
+      <!-- товари -->
+      <section class="products-section">
+        <div class="section-header">
+          <h3>Популярні товари</h3>
+          <span class="view-all">Всі товари</span>
+        </div>
+
+        <div class="product-grid">
+
+          <!-- 1 товар -->
+          <div class="product-card" onclick="openProduct(1)">
+            <div class="product-image-wrap">
+              <img src="2.jpg" alt="Товар 1" class="product-img">
+              <div class="product-overlay"><p>Натисни щоб переглянути</p></div>
+            </div>
+            <p class="product-name">Назва товару</p>
+            <span class="product-price">Ціна</span>
+          </div>
+
+          <!-- 2 -->
+          <div class="product-card" onclick="openProduct(2)">
+            <div class="product-image-wrap">
+              <img src="3.jpg" alt="Товар 2" class="product-img">
+              <div class="product-overlay"><p>Натисни щоб переглянути</p></div>
+            </div>
+            <p class="product-name">2 Назва товару</p>
+            <span class="product-price">Ціна</span>
+          </div>
+
+          <!-- 3 -->
+          <div class="product-card" onclick="openProduct(3)">
+            <div class="product-image-wrap">
+              <img src="4.jpg" alt="Товар 3" class="product-img">
+              <div class="product-overlay"><p>Натисни щоб переглянути</p></div>
+            </div>
+            <p class="product-name">3 Назва товару</p>
+            <span class="product-price">Ціна</span>
+          </div>
+
+          <!-- 4 -->
+          <div class="product-card" onclick="openProduct(4)">
+            <div class="product-image-wrap">
+              <img src="5.webp" alt="Товар 4" class="product-img">
+              <div class="product-overlay"><p>Натисни щоб переглянути</p></div>
+            </div>
+            <p class="product-name">4 Назва товару</p>
+            <span class="product-price">Ціна</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- контакти футер -->
+      <footer class="contact-footer">
+        <h3>Контакти</h3>
+        <p>mail@mail.com</p>
+        <p>+38 050 123 45 67</p>
+      </footer>
+
+    </div>
+
+    <!-- сторінка товару -->
+    <div id="page-product" class="page-view">
+      <div class="product-page-wrap">
+
+        <div class="product-detail">
+          <div class="product-detail-info">
+            <h2 id="detail-name">Товар</h2>
+            <p id="detail-desc">Опис</p>
+            <p class="detail-price" id="detail-price">Ціна</p>
+            <button class="btn-dark">Купити зараз</button>
+            <button class="btn-light">Додати в кошик</button>
+          </div>
+
+          <div class="product-detail-image">
+            <button class="slider-btn" id="prev-btn">&#60;</button>
+            <img id="detail-img" src="" alt="Товар">
+            <button class="slider-btn" id="next-btn">&#62;</button>
+          </div>
+        </div>
+
+        <div class="similar-section">
+          <h3>Схожі товари</h3>
+          <div class="product-grid" id="similar-grid"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- про нас -->
+    <div id="page-about" class="page-view">
+      <div class="simple-page">
+        <h2>Про нас</h2>
+        <p>Інформація про магазин</p>
+      </div>
+    </div>
+
+    <!-- контакти -->
+    <div id="page-contact" class="page-view">
+      <div class="simple-page">
+        <h2>Зв'яжіться з нами</h2>
+
+        <div id="success-msg" style="display:none; color:green; margin-bottom:16px;">Форму надіслано!</div>
+
+        <form id="contact-form">
+          <input type="text" id="name" placeholder="Ваше ім'я">
+          <div id="name-error" class="error-msg"></div>
+
+          <input type="text" id="email" placeholder="Ваш Email">
+          <div id="email-error" class="error-msg"></div>
+
+          <textarea id="message" placeholder="Повідомлення"></textarea>
+
+          <button type="submit" class="btn-dark">Надіслати</button>
+        </form>
+
+        <div id="reviews-container">
+          <h4>Останні відгуки</h4>
+          <ul id="reviews-list"></ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="state.js"></script>
+  <script src="router.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
